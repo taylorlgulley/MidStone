@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import LoginManager from "../../modules/LoginManager"
+import DataManager from "../../modules/DataManager"
 
 
 export default class Login extends Component {
@@ -33,7 +33,7 @@ export default class Login extends Component {
         }
 
         //Check if the values are already used in database
-        LoginManager.getAll().then((result) => {
+        DataManager.getAll("users").then((result) => {
             let userObject = result.find(item => {
                 return existingUser.username === item.username && existingUser.email === item.email && existingUser.password === item.password
             })
@@ -79,7 +79,7 @@ export default class Login extends Component {
 
         }
         //Check if the values are already used in database
-        LoginManager.getAll().then((result) => {
+        DataManager.getAll("users").then((result) => {
             let userName = result.find(item => {
                 return newUser.username === item.username
             })
@@ -92,7 +92,7 @@ export default class Login extends Component {
                 alert("Email is already taken")
             } else {
                 //Post to API
-                LoginManager.post(newUser).then(() => {
+                DataManager.post("users", newUser).then(() => {
                     //Clear the Form Fields
                     alert("You are now registered!")
                     //Put HTML Representation on the DOM
