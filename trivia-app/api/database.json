@@ -1,0 +1,27 @@
+{
+    "users": [
+        {
+            "email": "taylorlgulley@gmail.com",
+            "username": "tlg",
+            "password": "1234",
+            "id": 1
+        }
+    ],
+    "categories": [
+        {
+            "name": "James Bond",
+            "id": 1
+        }
+    ],
+    "questions": [
+        {
+            "categoryId": 1,
+            "userId": 1,
+            "question": "What is James Bond's codename?",
+            "correct": "007",
+            "wrong1": "006",
+            "wrong2": "001",
+            "wrong3": "004"
+        }
+    ]
+}
