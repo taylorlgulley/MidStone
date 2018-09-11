@@ -1,13 +1,23 @@
 import React, { Component } from 'react'
-// import { Link } from 'react-router-dom'
+import AddCategoryModal from './AddCategoryModal'
+import { Link } from 'react-router-dom'
 
 export default class CategoryList extends Component {
     render() {
 
         return (
-            <div>
-                Category List
-            </div>
+            <React.Fragment>
+                <AddCategoryModal />
+                {
+                    this.props.categories.map(category =>
+                        <div key={category.id} className="card">
+                            <div className="card-body">
+                                <Link className="nav-link" to={`/categories/${category.id}`}>{category.name}</Link>
+                            </div>
+                        </div>
+                    )
+                }
+            </React.Fragment>
         )
     }
 }
