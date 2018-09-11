@@ -16,6 +16,7 @@
   "categories": [
     {
       "name": "James Bond",
+      "userId": 1,
       "id": 1
     }
   ],
