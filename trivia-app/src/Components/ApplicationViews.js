@@ -2,6 +2,7 @@ import { Route, Redirect } from 'react-router-dom'
 import React, { Component } from "react"
 import Login from './login/Login'
 import HomePage from './HomePage'
+import CategoryList from './category/CategoryList'
 
 export default class ApplicationViews extends Component {
 
@@ -24,6 +25,13 @@ export default class ApplicationViews extends Component {
                 <Route exact path="/home" render={(props) => {
                     if (this.isAuthenticated()) {
                         return <HomePage />
+                    } else {
+                        return <Redirect to="/login" />
+                    }
+                }} />
+                <Route exact path="/categories" render={(props) => {
+                    if (this.isAuthenticated()) {
+                        return <CategoryList />
                     } else {
                         return <Redirect to="/login" />
                     }
