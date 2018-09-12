@@ -4,6 +4,7 @@ import Login from './login/Login'
 import HomePage from './HomePage'
 import CategoryList from './category/CategoryList'
 import QuizList from './quiz/QuizList'
+import QuizGroup from './quiz/QuizGroup'
 import DataManager from '../modules/DataManager'
 import APIManager from '../modules/APIManager'
 
@@ -14,7 +15,8 @@ export default class ApplicationViews extends Component {
 
     state = {
         categories: [],
-        questions: []
+        questions: [],
+        books: []
     }
 
     componentDidMount() {
@@ -26,14 +28,22 @@ export default class ApplicationViews extends Component {
                 categories: allCategories
             })
         })
+        APIManager.getBooks().then(allBookQuestions => {
+            this.setState({
+                books: allBookQuestions.results
+            })
+        })
+        console.log("books", this.state.books)
     }
 
     listBookQuestions = () => APIManager.getBooks()
         .then(books => console.log(books))
 
+    listSportsQuestions = () => APIManager.getSports()
+        .then(sports => console.log(sports))
+
 
     render() {
-
         return (
             <React.Fragment>
                 <Route path="/login" component={Login} />
@@ -60,7 +70,14 @@ export default class ApplicationViews extends Component {
                 }} />
                 <Route exact path="/quiz" render={(props) => {
                     if (this.isAuthenticated()) {
-                        return <QuizList listBookQuestions={this.listBookQuestions}{...props}/>
+                        return <QuizList listBookQuestions={this.listBookQuestions} listSportsQuestions={this.listSportsQuestions} {...props}/>
+                    } else {
+                        return <Redirect to="/login" />
+                    }
+                }} />
+                <Route exact path="/quiz/books" render={(props) => {
+                    if (this.isAuthenticated()) {
+                        return <QuizGroup books={this.state.books} {...props}/>
                     } else {
                         return <Redirect to="/login" />
                     }
