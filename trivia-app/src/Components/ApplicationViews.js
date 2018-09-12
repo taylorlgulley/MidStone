@@ -33,7 +33,7 @@ export default class ApplicationViews extends Component {
                 books: allBookQuestions.results
             })
         })
-        console.log("books", this.state.books)
+
     }
 
     listBookQuestions = () => APIManager.getBooks()

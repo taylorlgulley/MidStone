@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Button, Card, CardBody, CardTitle, CardText} from 'reactstrap';
+import he from 'he'
 
 export default class QuizCard extends Component {
 
@@ -18,15 +19,13 @@ export default class QuizCard extends Component {
     }
 
     componentDidMount() {
-        console.log(decodeURI(this.props.book.question))
         const question = {
-            question: decodeURI(this.props.book.question),
-            answer: this.props.book.correct_answer,
-            wrong1: this.props.book.incorrect_answers[0],
-            wrong2: this.props.book.incorrect_answers[1],
-            wrong3: this.props.book.incorrect_answers[2]
+            question: he.decode(this.props.book.question),
+            answer: he.decode(this.props.book.correct_answer),
+            wrong1: he.decode(this.props.book.incorrect_answers[0]),
+            wrong2: he.decode(this.props.book.incorrect_answers[1]),
+            wrong3: he.decode(this.props.book.incorrect_answers[2])
         }
-        console.log(question)
         this.setState({returnedQuestion: question})
     }
 
@@ -49,7 +48,6 @@ export default class QuizCard extends Component {
                         <Card>
                             <CardBody>
                                 <CardTitle>Question</CardTitle>
-                                <p>{this.state.returnedQuestion.question}</p>
                                 <CardText>{this.state.returnedQuestion.question}</CardText>
                                 <CardText>A. {this.state.returnedQuestion.answer}</CardText>
                                 <CardText>B. {this.state.returnedQuestion.wrong1}</CardText>
