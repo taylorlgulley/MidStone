@@ -7,7 +7,7 @@ export default class CategoryList extends Component {
 
         return (
             <React.Fragment>
-                <AddCategoryModal />
+                <AddCategoryModal {...this.props}/>
                 {
                     this.props.categories.map(category =>
                         <div key={category.id} className="card">

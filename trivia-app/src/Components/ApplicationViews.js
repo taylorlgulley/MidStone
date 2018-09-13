@@ -96,6 +96,19 @@ export default class ApplicationViews extends Component {
         })
 
     }
+    
+    user = () => {
+        if (localStorage.credentials) {
+            return JSON.parse(localStorage.getItem("credentials"))
+        }
+        else {return JSON.parse(sessionStorage.getItem("credentials"))}
+    }
+
+    addCategory = category => DataManager.post("categories", category)
+    .then(() => DataManager.getAllOfId("categories", this.user().id))
+    .then(allCategories => this.setState({
+        categories: allCategories
+    }))
 
     //Refactor later to have one route that changes for the default categories(maybe a .find for props to find the appropriate category)
     render() {
@@ -118,7 +131,7 @@ export default class ApplicationViews extends Component {
                 }} />
                 <Route exact path="/categories" render={(props) => {
                     if (this.isAuthenticated()) {
-                        return <CategoryList categories={this.state.categories}{...props}/>
+                        return <CategoryList categories={this.state.categories} addCategory={this.addCategory} {...props}/>
                     } else {
                         return <Redirect to="/login" />
                     }

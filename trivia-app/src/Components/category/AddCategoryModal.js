@@ -5,7 +5,8 @@ class AddCategoryModal extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            modal: false
+            modal: false,
+            name: ""
         };
 
         this.toggle = this.toggle.bind(this);
@@ -24,6 +25,23 @@ class AddCategoryModal extends React.Component {
         this.setState(stateToChange)
     }
 
+    user = () => {
+        if (localStorage.credentials) {
+            return JSON.parse(localStorage.getItem("credentials"))
+        }
+        else {return JSON.parse(sessionStorage.getItem("credentials"))}
+    }
+
+    constructNewCategory = evt => {
+        evt.preventDefault()
+        const newCategory = {
+            name: this.state.name,
+            userId: this.user().id
+        }
+        // Create the task and redirect user to mainview
+        this.props.addCategory(newCategory).then(() => this.toggle())
+    }
+
     render() {
         return (
             <div>
@@ -39,7 +57,7 @@ class AddCategoryModal extends React.Component {
                         </Form>
                     </ModalBody>
                     <ModalFooter>
-                        <Button color="primary" onClick={this.toggle}>Save Category</Button>
+                        <Button color="primary" onClick={this.constructNewCategory}>Save Category</Button>
                         <Button color="secondary" onClick={this.toggle}>Cancel</Button>
                     </ModalFooter>
                 </Modal>

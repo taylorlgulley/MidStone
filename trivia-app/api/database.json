@@ -18,6 +18,16 @@
       "name": "James Bond",
       "userId": 1,
       "id": 1
+    },
+    {
+      "name": "Computers",
+      "userId": 1,
+      "id": 2
+    },
+    {
+      "name": "Data Science",
+      "userId": 1,
+      "id": 3
     }
   ],
   "questions": [
