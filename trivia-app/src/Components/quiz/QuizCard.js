@@ -20,11 +20,11 @@ export default class QuizCard extends Component {
 
     componentDidMount() {
         const question = {
-            question: he.decode(this.props.book.question),
-            answer: he.decode(this.props.book.correct_answer),
-            wrong1: he.decode(this.props.book.incorrect_answers[0]),
-            wrong2: he.decode(this.props.book.incorrect_answers[1]),
-            wrong3: he.decode(this.props.book.incorrect_answers[2])
+            question: he.decode(this.props.quizQuestion.question),
+            answer: he.decode(this.props.quizQuestion.correct_answer),
+            wrong1: he.decode(this.props.quizQuestion.incorrect_answers[0]),
+            wrong2: he.decode(this.props.quizQuestion.incorrect_answers[1]),
+            wrong3: he.decode(this.props.quizQuestion.incorrect_answers[2])
         }
         this.setState({returnedQuestion: question})
     }

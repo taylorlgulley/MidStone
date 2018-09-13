@@ -7,10 +7,10 @@ export default class QuizGroup extends Component {
 
         return (
             <React.Fragment>
-                <section className="books">
+                <section className="quiz">
                     {
-                        this.props.books.map((book, i) => 
-                                <QuizCard key={i} book={book} {...this.props} />
+                        this.props.quiz.map((question, i) => 
+                                <QuizCard key={i} quizQuestion={question} {...this.props} />
                         )
                     }
                 </section>
