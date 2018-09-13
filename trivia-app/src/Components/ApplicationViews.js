@@ -30,9 +30,16 @@ export default class ApplicationViews extends Component {
 
     componentDidMount() {
 
+        let user = () => {
+            if (localStorage.credentials) {
+                return JSON.parse(localStorage.getItem("credentials"))
+            }
+            else {return JSON.parse(sessionStorage.getItem("credentials"))}
+        }
+
         // Example code. Make this fit into how you have written yours.
         // Need to change the 1 into a way to grab the session or local storage user id
-        DataManager.getAllOfId("categories", "1").then(allCategories => {
+        DataManager.getAllOfId("categories", user().id).then(allCategories => {
             this.setState({
                 categories: allCategories
             })
