@@ -28,6 +28,29 @@ export default class QuizCard extends Component {
         }
         this.setState({returnedQuestion: question})
     }
+    //do a componentDidUpdate so it doesn't make the cards answers rerandomize again
+
+    randomOption = () => {
+        let options = [this.state.returnedQuestion.answer, this.state.returnedQuestion.wrong1, this.state.returnedQuestion.wrong2, this.state.returnedQuestion.wrong3]
+        let num1 = Math.floor(Math.random() * options.length)
+        let option1 = options[num1]
+        options.splice(num1, 1)
+        let num2 = Math.floor(Math.random() * options.length)
+        let option2 = options[num2]
+        options.splice(num2, 1)
+        let num3 = Math.floor(Math.random() * options.length)
+        let option3 = options[num3]
+        options.splice(num3, 1)
+        let num4 = Math.floor(Math.random() * options.length)
+        let option4 = options[num4]
+        options.splice(num4, 1)
+        return <CardBody>
+                    <CardText>A. {option1}</CardText>
+                    <CardText>B. {option2}</CardText>
+                    <CardText>C. {option3}</CardText>
+                    <CardText>D. {option4}</CardText>
+               </CardBody>
+    }
 
     render() {
 
@@ -49,10 +72,7 @@ export default class QuizCard extends Component {
                             <CardBody>
                                 <CardTitle>Question</CardTitle>
                                 <CardText>{this.state.returnedQuestion.question}</CardText>
-                                <CardText>A. {this.state.returnedQuestion.answer}</CardText>
-                                <CardText>B. {this.state.returnedQuestion.wrong1}</CardText>
-                                <CardText>C. {this.state.returnedQuestion.wrong2}</CardText>
-                                <CardText>D. {this.state.returnedQuestion.wrong3}</CardText>
+                                {this.randomOption()}
                                 <Button onClick={this.flipCard}>Answer</Button>
                             </CardBody>
                         </Card>
