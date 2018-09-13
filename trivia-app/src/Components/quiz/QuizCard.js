@@ -28,7 +28,13 @@ export default class QuizCard extends Component {
         }
         this.setState({returnedQuestion: question})
     }
-    //do a componentDidUpdate so it doesn't make the cards answers rerandomize again
+    //Use didComponentUpdate or shouldComponent Update to make the options not rerandomize on flip
+    // shouldComponentUpdate(prevState) {
+    //     // Typical usage (don't forget to compare props):
+    //     if (this.state.returnedQuestion !== prevState.returnedQuestion) {
+    //         console.log("hey")
+    //     }
+    //   }
 
     randomOption = () => {
         let options = [this.state.returnedQuestion.answer, this.state.returnedQuestion.wrong1, this.state.returnedQuestion.wrong2, this.state.returnedQuestion.wrong3]
