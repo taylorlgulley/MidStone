@@ -13,6 +13,7 @@ export default class CategoryList extends Component {
                         <div key={category.id} className="card">
                             <div className="card-body">
                                 <Link className="nav-link" to={`/questionlist/${category.id}`}>{category.name}</Link>
+                                <button onClick={() => this.props.deleteCategory(category.id)}>Delete Category</button>
                             </div>
                         </div>
                     )

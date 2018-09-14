@@ -114,6 +114,12 @@ export default class ApplicationViews extends Component {
     .then(allCategories => this.setState({
         categories: allCategories
     }))
+    deleteCategory = id => DataManager.delete("categories", id)
+    .then(() => DataManager.deleteAllOfId("questions", id))
+    .then(() => DataManager.getAllOfId("categories", this.user().id))
+    .then(allCategories => this.setState({
+        categories: allCategories
+    }))
     addQuestion = question => DataManager.post("questions", question)
     .then(() => DataManager.getAllOfId("questions", this.user().id))
     .then(allQuestions => this.setState({
@@ -151,7 +157,7 @@ export default class ApplicationViews extends Component {
                 }} />
                 <Route exact path="/categories" render={(props) => {
                     if (this.isAuthenticated()) {
-                        return <CategoryList categories={this.state.categories} addCategory={this.addCategory} {...props}/>
+                        return <CategoryList categories={this.state.categories} addCategory={this.addCategory} deleteCategory={this.deleteCategory} {...props}/>
                     } else {
                         return <Redirect to="/login" />
                     }
