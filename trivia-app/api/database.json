@@ -59,22 +59,32 @@
     {
       "categoryId": 4,
       "userId": 1,
-      "question": "What was Larry Bird's number?",
+      "question": "What is Larry Bird's jersey number?",
       "correct": "33",
       "wrong1": "34",
-      "wrong2": "00",
-      "wrong3": "32",
+      "wrong2": "32",
+      "wrong3": "00",
       "id": 3
     },
     {
       "categoryId": 4,
       "userId": 1,
-      "question": "Which team sucks?",
+      "question": "Which of these teams suck?",
       "correct": "All of these",
       "wrong1": "Lakers",
       "wrong2": "Heat",
       "wrong3": "Cavs",
       "id": 4
+    },
+    {
+      "categoryId": 4,
+      "userId": 1,
+      "question": "Hey Now",
+      "correct": "1",
+      "wrong1": "2",
+      "wrong2": "3",
+      "wrong3": "4",
+      "id": 5
     }
   ]
 }
