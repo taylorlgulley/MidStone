@@ -96,7 +96,7 @@ export default class ApplicationViews extends Component {
         })
 
     }
-    
+
     user = () => {
         if (localStorage.credentials) {
             return JSON.parse(localStorage.getItem("credentials"))
@@ -132,6 +132,13 @@ export default class ApplicationViews extends Component {
                 <Route exact path="/categories" render={(props) => {
                     if (this.isAuthenticated()) {
                         return <CategoryList categories={this.state.categories} addCategory={this.addCategory} {...props}/>
+                    } else {
+                        return <Redirect to="/login" />
+                    }
+                }} />
+                <Route exact path="/questionlist/:categoryId(\d+)" render={(props) => {
+                    if (this.isAuthenticated()) {
+                        return <QuestionList {...props}/>
                     } else {
                         return <Redirect to="/login" />
                     }

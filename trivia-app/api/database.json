@@ -28,6 +28,11 @@
       "name": "Data Science",
       "userId": 1,
       "id": 3
+    },
+    {
+      "name": "Boston Celtics",
+      "userId": 1,
+      "id": 4
     }
   ],
   "questions": [
