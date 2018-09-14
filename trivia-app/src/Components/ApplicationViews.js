@@ -3,6 +3,7 @@ import React, { Component } from "react"
 import Login from './login/Login'
 import HomePage from './HomePage'
 import CategoryList from './category/CategoryList'
+import CustomQuizGroup from './quiz/CustomQuizGroup'
 import QuestionList from './questions/QuestionList'
 import QuizList from './quiz/QuizList'
 import QuizGroup from './quiz/QuizGroup'
@@ -171,7 +172,14 @@ export default class ApplicationViews extends Component {
                 }} />
                 <Route exact path="/quiz" render={(props) => {
                     if (this.isAuthenticated()) {
-                        return <QuizList {...props}/>
+                        return <QuizList categories={this.state.categories} {...props}/>
+                    } else {
+                        return <Redirect to="/login" />
+                    }
+                }} />
+                <Route exact path="/customquiz/:categoryId(\d+)" render={(props) => {
+                    if (this.isAuthenticated()) {
+                        return <CustomQuizGroup questions={this.state.questions} {...props}/>
                     } else {
                         return <Redirect to="/login" />
                     }
