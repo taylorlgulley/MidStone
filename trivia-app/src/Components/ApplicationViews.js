@@ -119,6 +119,16 @@ export default class ApplicationViews extends Component {
     .then(allQuestions => this.setState({
     questions: allQuestions
     }))
+    deleteQuestion = id => DataManager.delete("questions", id)
+    .then(() => DataManager.getAllOfId("questions", this.user().id))
+    .then(allQuestions => this.setState({
+        questions: allQuestions
+    }))
+    editQuestion = (id, editedQuestion) => DataManager.patch("questions", id, editedQuestion)
+    .then(() => DataManager.getAllOfId("questions", this.user().id))
+    .then(allQuestions => this.setState({
+        questions: allQuestions
+    }))
 
     //Refactor later to have one route that changes for the default categories(maybe a .find for props to find the appropriate category)
     render() {
@@ -148,7 +158,7 @@ export default class ApplicationViews extends Component {
                 }} />
                 <Route exact path="/questionlist/:categoryId(\d+)" render={(props) => {
                     if (this.isAuthenticated()) {
-                        return <QuestionList questions={this.state.questions} addQuestion={this.addQuestion} {...props}/>
+                        return <QuestionList questions={this.state.questions} addQuestion={this.addQuestion} deleteQuestion={this.deleteQuestion} editQuestion={this.editQuestion} {...props}/>
                     } else {
                         return <Redirect to="/login" />
                     }
