@@ -51,7 +51,7 @@ class AddCategoryModal extends React.Component {
                     <ModalBody>
                         <Form>
                             <FormGroup>
-                                <Label for="taskName">Category Name</Label>
+                                <Label for="categoryName">Category Name</Label>
                                 <Input type="text" name="category" id="name" placeholder="James Bond" onChange={this.handleFieldChange} />
                             </FormGroup>
                         </Form>

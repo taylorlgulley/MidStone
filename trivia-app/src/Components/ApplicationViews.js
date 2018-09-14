@@ -3,6 +3,7 @@ import React, { Component } from "react"
 import Login from './login/Login'
 import HomePage from './HomePage'
 import CategoryList from './category/CategoryList'
+import QuestionList from './questions/QuestionList'
 import QuizList from './quiz/QuizList'
 import QuizGroup from './quiz/QuizGroup'
 import DataManager from '../modules/DataManager'
@@ -38,10 +39,14 @@ export default class ApplicationViews extends Component {
         }
 
         // Example code. Make this fit into how you have written yours.
-        // Need to change the 1 into a way to grab the session or local storage user id
         DataManager.getAllOfId("categories", user().id).then(allCategories => {
             this.setState({
                 categories: allCategories
+            })
+        })
+        DataManager.getAllOfId("questions", user().id).then(allQuestions => {
+            this.setState({
+                questions: allQuestions
             })
         })
         APIManager.getBooks().then(allBookQuestions => {
@@ -109,6 +114,11 @@ export default class ApplicationViews extends Component {
     .then(allCategories => this.setState({
         categories: allCategories
     }))
+    addQuestion = question => DataManager.post("questions", question)
+    .then(() => DataManager.getAllOfId("questions", this.user().id))
+    .then(allQuestions => this.setState({
+    questions: allQuestions
+    }))
 
     //Refactor later to have one route that changes for the default categories(maybe a .find for props to find the appropriate category)
     render() {
@@ -138,7 +148,7 @@ export default class ApplicationViews extends Component {
                 }} />
                 <Route exact path="/questionlist/:categoryId(\d+)" render={(props) => {
                     if (this.isAuthenticated()) {
-                        return <QuestionList {...props}/>
+                        return <QuestionList questions={this.state.questions} addQuestion={this.addQuestion} {...props}/>
                     } else {
                         return <Redirect to="/login" />
                     }
