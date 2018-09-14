@@ -7,12 +7,12 @@ export default class CategoryList extends Component {
 
         return (
             <React.Fragment>
-                <AddCategoryModal />
+                <AddCategoryModal {...this.props}/>
                 {
                     this.props.categories.map(category =>
                         <div key={category.id} className="card">
                             <div className="card-body">
-                                <Link className="nav-link" to={`/categories/${category.id}`}>{category.name}</Link>
+                                <Link className="nav-link" to={`/questionlist/${category.id}`}>{category.name}</Link>
                             </div>
                         </div>
                     )
