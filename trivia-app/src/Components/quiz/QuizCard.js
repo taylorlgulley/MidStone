@@ -64,11 +64,11 @@ export default class QuizCard extends Component {
                             <CardBody>
                                 <CardTitle>Question</CardTitle>
                                 <CardText>{this.state.returnedQuestion.question}</CardText>
-                                <CardBody>
-                                    <CardText>A. {this.state.returnedQuestion.option1}</CardText>
-                                    <CardText>B. {this.state.returnedQuestion.option2}</CardText>
-                                    <CardText>C. {this.state.returnedQuestion.option3}</CardText>
-                                    <CardText>D. {this.state.returnedQuestion.option4}</CardText>
+                                <CardBody className="d-flex align-content-between flex-wrap">
+                                    <CardText className="w-50">A. {this.state.returnedQuestion.option1}</CardText>
+                                    <CardText className="w-50">B. {this.state.returnedQuestion.option2}</CardText>
+                                    <CardText className="w-50">C. {this.state.returnedQuestion.option3}</CardText>
+                                    <CardText className="w-50">D. {this.state.returnedQuestion.option4}</CardText>
                                 </CardBody>
                                 <Button onClick={this.flipCard}>Answer</Button>
                             </CardBody>
