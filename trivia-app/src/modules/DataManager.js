@@ -24,14 +24,6 @@ export default Object.create(null, {
         .then(()=>{return fetch(`${remoteURL}/${section}`).then(e => e.json()) })
         }
     },
-    deleteAllOfId: {
-        value: (section, id) => {
-            return fetch(`${remoteURL}/${section}?categoryId=${id}`, {
-            method: "DELETE"
-        })
-        .then(()=>{return fetch(`${remoteURL}/${section}`).then(e => e.json()) })
-        }
-    },
     post: {
         value: function (section, newElement) {
             return fetch(`${remoteURL}/${section}`, {

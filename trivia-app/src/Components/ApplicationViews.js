@@ -3,10 +3,10 @@ import React, { Component } from "react"
 import Login from './login/Login'
 import HomePage from './HomePage'
 import CategoryList from './category/CategoryList'
-import CustomQuizGroup from './quiz/CustomQuizGroup'
 import QuestionList from './questions/QuestionList'
 import QuizList from './quiz/QuizList'
 import QuizGroup from './quiz/QuizGroup'
+import CustomQuizGroup from './quiz/CustomQuizGroup'
 import DataManager from '../modules/DataManager'
 import APIManager from '../modules/APIManager'
 
@@ -115,22 +115,29 @@ export default class ApplicationViews extends Component {
     .then(allCategories => this.setState({
         categories: allCategories
     }))
+
     deleteCategory = id => DataManager.delete("categories", id)
-    .then(() => DataManager.deleteAllOfId("questions", id))
+    .then(() => DataManager.getAllOfId("questions", this.user().id))
+    .then(allQuestions => this.setState({
+        questions: allQuestions
+        }))
     .then(() => DataManager.getAllOfId("categories", this.user().id))
     .then(allCategories => this.setState({
         categories: allCategories
     }))
+
     addQuestion = question => DataManager.post("questions", question)
     .then(() => DataManager.getAllOfId("questions", this.user().id))
     .then(allQuestions => this.setState({
     questions: allQuestions
     }))
+
     deleteQuestion = id => DataManager.delete("questions", id)
     .then(() => DataManager.getAllOfId("questions", this.user().id))
     .then(allQuestions => this.setState({
         questions: allQuestions
     }))
+    
     editQuestion = (id, editedQuestion) => DataManager.patch("questions", id, editedQuestion)
     .then(() => DataManager.getAllOfId("questions", this.user().id))
     .then(allQuestions => this.setState({
@@ -170,16 +177,16 @@ export default class ApplicationViews extends Component {
                         return <Redirect to="/login" />
                     }
                 }} />
-                <Route exact path="/quiz" render={(props) => {
+                <Route exact path="/customquiz/:categoryId(\d+)" render={(props) => {
                     if (this.isAuthenticated()) {
-                        return <QuizList categories={this.state.categories} {...props}/>
+                        return <CustomQuizGroup questions={this.state.questions} {...props}/>
                     } else {
                         return <Redirect to="/login" />
                     }
                 }} />
-                <Route exact path="/customquiz/:categoryId(\d+)" render={(props) => {
+                <Route exact path="/quiz" render={(props) => {
                     if (this.isAuthenticated()) {
-                        return <CustomQuizGroup questions={this.state.questions} {...props}/>
+                        return <QuizList categories={this.state.categories} {...props}/>
                     } else {
                         return <Redirect to="/login" />
                     }
