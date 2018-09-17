@@ -18,25 +18,7 @@ export default class QuizCard extends Component {
     }
 
     componentDidMount() {
-        const question = {
-            question: this.props.question.question,
-            answer: this.props.question.correct,
-            wrong1: this.props.question.wrong1,
-            wrong2: this.props.question.wrong2,
-            wrong3: this.props.question.wrong3
-        }
-        this.setState({returnedQuestion: question})
-    }
-    //Use didComponentUpdate or shouldComponent Update to make the options not rerandomize on flip
-    // shouldComponentUpdate(prevState) {
-    //     // Typical usage (don't forget to compare props):
-    //     if (this.state.returnedQuestion !== prevState.returnedQuestion) {
-    //         console.log("hey")
-    //     }
-    //   }
-
-    randomOption = () => {
-        let options = [this.state.returnedQuestion.answer, this.state.returnedQuestion.wrong1, this.state.returnedQuestion.wrong2, this.state.returnedQuestion.wrong3]
+        let options = [this.props.question.correct, this.props.question.wrong1, this.props.question.wrong2, this.props.question.wrong3]
         let num1 = Math.floor(Math.random() * options.length)
         let option1 = options[num1]
         options.splice(num1, 1)
@@ -49,12 +31,16 @@ export default class QuizCard extends Component {
         let num4 = Math.floor(Math.random() * options.length)
         let option4 = options[num4]
         options.splice(num4, 1)
-        return <CardBody>
-                    <CardText>A. {option1}</CardText>
-                    <CardText>B. {option2}</CardText>
-                    <CardText>C. {option3}</CardText>
-                    <CardText>D. {option4}</CardText>
-               </CardBody>
+
+        const question = {
+            question: this.props.question.question,
+            answer: this.props.question.correct,
+            option1: option1,
+            option2: option2,
+            option3: option3,
+            option4: option4
+        }
+        this.setState({returnedQuestion: question})
     }
 
     render() {
@@ -77,7 +63,12 @@ export default class QuizCard extends Component {
                             <CardBody>
                                 <CardTitle>Question</CardTitle>
                                 <CardText>{this.state.returnedQuestion.question}</CardText>
-                                {this.randomOption()}
+                                <CardBody>
+                                    <CardText>A. {this.state.returnedQuestion.option1}</CardText>
+                                    <CardText>B. {this.state.returnedQuestion.option2}</CardText>
+                                    <CardText>C. {this.state.returnedQuestion.option3}</CardText>
+                                    <CardText>D. {this.state.returnedQuestion.option4}</CardText>
+                                </CardBody>
                                 <Button onClick={this.flipCard}>Answer</Button>
                             </CardBody>
                         </Card>
