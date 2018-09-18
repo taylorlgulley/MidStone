@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Button, Card, CardBody, CardTitle, CardText} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './QuestionCard.css'
 
 export default class QuizCard extends Component {
 
@@ -51,11 +50,11 @@ export default class QuizCard extends Component {
             <React.Fragment>
                 {(this.state.flip) ? 
                     <div>
-                        <Card color="dark" style={{margin: "10px 10px 10px 10px", height:"300px", width:"600px", justifyContent:"center"}}>
+                        <Card color="dark" style={{margin: "10px 10px 10px 10px", height:"300px", width:"600px"}}>
                             <CardBody>
                                 <CardTitle className="text-white">The Answer is:</CardTitle>
                                 <CardText className="text-white">{this.state.returnedQuestion.answer}</CardText>
-                                <Button onClick={this.flipCard}>Question</Button>
+                                <Button color="info" onClick={this.flipCard}>Question</Button>
                             </CardBody>
                         </Card>
                     </div>

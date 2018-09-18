@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Button, Card, CardBody, CardTitle, CardText} from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import he from 'he'
 
 export default class QuizCard extends Component {
@@ -50,27 +51,27 @@ export default class QuizCard extends Component {
             <React.Fragment>
                 {(this.state.flip) ? 
                     <div>
-                        <Card>
-                            <CardBody>
-                                <CardTitle>The Answer is:</CardTitle>
-                                <CardText>{this.state.returnedQuestion.answer}</CardText>
-                                <Button onClick={this.flipCard}>Question</Button>
+                        <Card color="dark" style={{margin: "10px 10px 10px 10px", height:"300px", width:"600px"}}>
+                            <CardBody >
+                                <CardTitle className="text-white">The Answer is:</CardTitle>
+                                <CardText className="text-white">{this.state.returnedQuestion.answer}</CardText>
+                                <Button color="info" onClick={this.flipCard}>Question</Button>
                             </CardBody>
                         </Card>
                     </div>
                 :
                     <div>
-                        <Card>
+                        <Card color="dark" style={{margin: "10px 10px 10px 10px", height:"300px", width:"600px"}}>
                             <CardBody>
-                                <CardTitle>Question</CardTitle>
-                                <CardText>{this.state.returnedQuestion.question}</CardText>
+                                <CardTitle className="text-white">Question</CardTitle>
+                                <CardText className="text-white">{this.state.returnedQuestion.question}</CardText>
                                 <CardBody className="d-flex align-content-between flex-wrap">
-                                    <CardText className="w-50">A. {this.state.returnedQuestion.option1}</CardText>
-                                    <CardText className="w-50">B. {this.state.returnedQuestion.option2}</CardText>
-                                    <CardText className="w-50">C. {this.state.returnedQuestion.option3}</CardText>
-                                    <CardText className="w-50">D. {this.state.returnedQuestion.option4}</CardText>
+                                    <CardText className="w-50 text-white">A. {this.state.returnedQuestion.option1}</CardText>
+                                    <CardText className="w-50 text-white">B. {this.state.returnedQuestion.option2}</CardText>
+                                    <CardText className="w-50 text-white">C. {this.state.returnedQuestion.option3}</CardText>
+                                    <CardText className="w-50 text-white">D. {this.state.returnedQuestion.option4}</CardText>
                                 </CardBody>
-                                <Button onClick={this.flipCard}>Answer</Button>
+                                <Button color="info" onClick={this.flipCard}>Answer</Button>
                             </CardBody>
                         </Card>
                     </div>
