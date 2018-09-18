@@ -1,6 +1,3 @@
-.question-card {
-    background: "blue";
-}
-.card-body {
-    background-color: "blue";
+.customQuiz {
+    justify-content: "center";
 }

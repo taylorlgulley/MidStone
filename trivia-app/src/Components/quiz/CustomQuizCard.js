@@ -51,7 +51,7 @@ export default class QuizCard extends Component {
             <React.Fragment>
                 {(this.state.flip) ? 
                     <div>
-                        <Card className="question-card" color="dark">
+                        <Card color="dark" style={{margin: "10px 10px 10px 10px", height:"300px", width:"600px", justifyContent:"center"}}>
                             <CardBody>
                                 <CardTitle className="text-white">The Answer is:</CardTitle>
                                 <CardText className="text-white">{this.state.returnedQuestion.answer}</CardText>
@@ -61,7 +61,7 @@ export default class QuizCard extends Component {
                     </div>
                 :
                     <div>
-                        <Card className="question-card" color="dark" style={{margin: "10px 10px 10px 10px"}}>
+                        <Card color="dark" style={{margin: "10px 10px 10px 10px", height:"300px", width:"600px"}}>
                             <CardBody>
                                 <CardTitle className="text-white">Question</CardTitle>
                                 <CardText className="text-white">{this.state.returnedQuestion.question}</CardText>
