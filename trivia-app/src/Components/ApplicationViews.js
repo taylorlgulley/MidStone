@@ -3,10 +3,10 @@ import React, { Component } from "react"
 import Login from './login/Login'
 import HomePage from './HomePage'
 import CategoryList from './category/CategoryList'
-import CustomQuizGroup from './quiz/CustomQuizGroup'
 import QuestionList from './questions/QuestionList'
 import QuizList from './quiz/QuizList'
 import QuizGroup from './quiz/QuizGroup'
+import CustomQuizGroup from './quiz/CustomQuizGroup'
 import DataManager from '../modules/DataManager'
 import APIManager from '../modules/APIManager'
 
@@ -32,6 +32,8 @@ export default class ApplicationViews extends Component {
 
     componentDidMount() {
 
+        const _state = {}
+
         let user = () => {
             if (localStorage.credentials) {
                 return JSON.parse(localStorage.getItem("credentials"))
@@ -39,67 +41,33 @@ export default class ApplicationViews extends Component {
             else {return JSON.parse(sessionStorage.getItem("credentials"))}
         }
 
-        // Example code. Make this fit into how you have written yours.
-        DataManager.getAllOfId("categories", user().id).then(allCategories => {
-            this.setState({
-                categories: allCategories
+        DataManager.getAllOfId("questions", user().id)
+            .then(questions => _state.questions = questions)
+            .then(() => DataManager.getAllOfId("categories", user().id))
+            .then(categories => _state.categories = categories)
+            .then(() => APIManager.getBooks())
+            .then(allBookQuestions => _state.books = allBookQuestions.results)
+            .then(() => APIManager.getSports())
+            .then(allSportsQuestions => _state.sports = allSportsQuestions.results)
+            .then(() => APIManager.getFilms())
+            .then(allFilmsQuestions => _state.films = allFilmsQuestions.results)
+            .then(() => APIManager.getVideoGames())
+            .then(allVideoGamesQuestions => _state.videogames = allVideoGamesQuestions.results)
+            .then(() => APIManager.getMythology())
+            .then(allMythologyQuestions => _state.mythology = allMythologyQuestions.results)
+            .then(() => APIManager.getAnimals())
+            .then(allAnimalsQuestions => _state.animals = allAnimalsQuestions.results)
+            .then(() => APIManager.getAnime())
+            .then(allAnimeQuestions => _state.anime = allAnimeQuestions.results)
+            .then(() => APIManager.getGeneralKnowledge())
+            .then(allGeneralKnowledgeQuestions => _state.generalknowledge = allGeneralKnowledgeQuestions.results)
+            .then(() => APIManager.getGeography())
+            .then(allGeographyQuestions => _state.geography = allGeographyQuestions.results)
+            .then(() => APIManager.getArt())
+            .then(allArtQuestions => _state.Art = allArtQuestions.results)
+            .then(() => {
+                this.setState(_state)
             })
-        })
-        DataManager.getAllOfId("questions", user().id).then(allQuestions => {
-            this.setState({
-                questions: allQuestions
-            })
-        })
-        APIManager.getBooks().then(allBookQuestions => {
-            this.setState({
-                books: allBookQuestions.results
-            })
-        })
-        APIManager.getSports().then(allSportsQuestions => {
-            this.setState({
-                sports: allSportsQuestions.results
-            })
-        })
-        APIManager.getFilms().then(allFilmsQuestions => {
-            this.setState({
-                films: allFilmsQuestions.results
-            })
-        })
-        APIManager.getVideoGames().then(allVideoGamesQuestions => {
-            this.setState({
-                videogames: allVideoGamesQuestions.results
-            })
-        })
-        APIManager.getMythology().then(allMythologyQuestions => {
-            this.setState({
-                mythology: allMythologyQuestions.results
-            })
-        })
-        APIManager.getAnimals().then(allAnimalsQuestions => {
-            this.setState({
-                animals: allAnimalsQuestions.results
-            })
-        })
-        APIManager.getAnime().then(allAnimeQuestions => {
-            this.setState({
-                anime: allAnimeQuestions.results
-            })
-        })
-        APIManager.getGeneralKnowledge().then(allGeneralKnowledgeQuestions => {
-            this.setState({
-                generalknowledge: allGeneralKnowledgeQuestions.results
-            })
-        })
-        APIManager.getGeography().then(allGeographyQuestions => {
-            this.setState({
-                geography: allGeographyQuestions.results
-            })
-        })
-        APIManager.getArt().then(allArtQuestions => {
-            this.setState({
-                art: allArtQuestions.results
-            })
-        })
 
     }
 
@@ -115,22 +83,29 @@ export default class ApplicationViews extends Component {
     .then(allCategories => this.setState({
         categories: allCategories
     }))
+
     deleteCategory = id => DataManager.delete("categories", id)
-    .then(() => DataManager.deleteAllOfId("questions", id))
+    .then(() => DataManager.getAllOfId("questions", this.user().id))
+    .then(allQuestions => this.setState({
+        questions: allQuestions
+        }))
     .then(() => DataManager.getAllOfId("categories", this.user().id))
     .then(allCategories => this.setState({
         categories: allCategories
     }))
+
     addQuestion = question => DataManager.post("questions", question)
     .then(() => DataManager.getAllOfId("questions", this.user().id))
     .then(allQuestions => this.setState({
     questions: allQuestions
     }))
+
     deleteQuestion = id => DataManager.delete("questions", id)
     .then(() => DataManager.getAllOfId("questions", this.user().id))
     .then(allQuestions => this.setState({
         questions: allQuestions
     }))
+    
     editQuestion = (id, editedQuestion) => DataManager.patch("questions", id, editedQuestion)
     .then(() => DataManager.getAllOfId("questions", this.user().id))
     .then(allQuestions => this.setState({
@@ -170,16 +145,16 @@ export default class ApplicationViews extends Component {
                         return <Redirect to="/login" />
                     }
                 }} />
-                <Route exact path="/quiz" render={(props) => {
+                <Route exact path="/customquiz/:categoryId(\d+)" render={(props) => {
                     if (this.isAuthenticated()) {
-                        return <QuizList categories={this.state.categories} {...props}/>
+                        return <CustomQuizGroup questions={this.state.questions} {...props}/>
                     } else {
                         return <Redirect to="/login" />
                     }
                 }} />
-                <Route exact path="/customquiz/:categoryId(\d+)" render={(props) => {
+                <Route exact path="/quiz" render={(props) => {
                     if (this.isAuthenticated()) {
-                        return <CustomQuizGroup questions={this.state.questions} {...props}/>
+                        return <QuizList categories={this.state.categories} {...props}/>
                     } else {
                         return <Redirect to="/login" />
                     }

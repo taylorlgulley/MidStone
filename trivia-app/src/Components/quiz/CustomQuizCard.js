@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Button, Card, CardBody, CardTitle, CardText} from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default class QuizCard extends Component {
 
@@ -18,25 +19,7 @@ export default class QuizCard extends Component {
     }
 
     componentDidMount() {
-        const question = {
-            question: this.props.question.question,
-            answer: this.props.question.correct,
-            wrong1: this.props.question.wrong1,
-            wrong2: this.props.question.wrong2,
-            wrong3: this.props.question.wrong3
-        }
-        this.setState({returnedQuestion: question})
-    }
-    //Use didComponentUpdate or shouldComponent Update to make the options not rerandomize on flip
-    // shouldComponentUpdate(prevState) {
-    //     // Typical usage (don't forget to compare props):
-    //     if (this.state.returnedQuestion !== prevState.returnedQuestion) {
-    //         console.log("hey")
-    //     }
-    //   }
-
-    randomOption = () => {
-        let options = [this.state.returnedQuestion.answer, this.state.returnedQuestion.wrong1, this.state.returnedQuestion.wrong2, this.state.returnedQuestion.wrong3]
+        let options = [this.props.question.correct, this.props.question.wrong1, this.props.question.wrong2, this.props.question.wrong3]
         let num1 = Math.floor(Math.random() * options.length)
         let option1 = options[num1]
         options.splice(num1, 1)
@@ -49,12 +32,16 @@ export default class QuizCard extends Component {
         let num4 = Math.floor(Math.random() * options.length)
         let option4 = options[num4]
         options.splice(num4, 1)
-        return <CardBody>
-                    <CardText>A. {option1}</CardText>
-                    <CardText>B. {option2}</CardText>
-                    <CardText>C. {option3}</CardText>
-                    <CardText>D. {option4}</CardText>
-               </CardBody>
+
+        const question = {
+            question: this.props.question.question,
+            answer: this.props.question.correct,
+            option1: option1,
+            option2: option2,
+            option3: option3,
+            option4: option4
+        }
+        this.setState({returnedQuestion: question})
     }
 
     render() {
@@ -63,22 +50,27 @@ export default class QuizCard extends Component {
             <React.Fragment>
                 {(this.state.flip) ? 
                     <div>
-                        <Card>
+                        <Card color="dark" style={{margin: "10px 10px 10px 10px", height:"300px", width:"600px"}}>
                             <CardBody>
-                                <CardTitle>The Answer is:</CardTitle>
-                                <CardText>{this.state.returnedQuestion.answer}</CardText>
-                                <Button onClick={this.flipCard}>Question</Button>
+                                <CardTitle className="text-white">The Answer is:</CardTitle>
+                                <CardText className="text-white">{this.state.returnedQuestion.answer}</CardText>
+                                <Button color="info" onClick={this.flipCard}>Question</Button>
                             </CardBody>
                         </Card>
                     </div>
                 :
                     <div>
-                        <Card>
+                        <Card color="dark" style={{margin: "10px 10px 10px 10px", height:"300px", width:"600px"}}>
                             <CardBody>
-                                <CardTitle>Question</CardTitle>
-                                <CardText>{this.state.returnedQuestion.question}</CardText>
-                                {this.randomOption()}
-                                <Button onClick={this.flipCard}>Answer</Button>
+                                <CardTitle className="text-white">Question</CardTitle>
+                                <CardText className="text-white">{this.state.returnedQuestion.question}</CardText>
+                                <CardBody className="d-flex align-content-between flex-wrap">
+                                    <CardText className="w-50 text-white">A. {this.state.returnedQuestion.option1}</CardText>
+                                    <CardText className="w-50 text-white">B. {this.state.returnedQuestion.option2}</CardText>
+                                    <CardText className="w-50 text-white">C. {this.state.returnedQuestion.option3}</CardText>
+                                    <CardText className="w-50 text-white">D. {this.state.returnedQuestion.option4}</CardText>
+                                </CardBody>
+                                <Button color="info" onClick={this.flipCard}>Answer</Button>
                             </CardBody>
                         </Card>
                     </div>
