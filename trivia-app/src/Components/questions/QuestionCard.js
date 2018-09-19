@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Button, Card, CardBody, CardTitle, CardText, Input, Label} from 'reactstrap';
+import './Question.css'
 
 export default class QuestionCard extends Component {
 
@@ -51,7 +52,7 @@ export default class QuestionCard extends Component {
         return (
             <React.Fragment>
                 {(this.state.edit) ? 
-                    <Card>
+                    <Card className="question-card">
                         <CardBody>
                             <Label>Question</Label>
                             <Input type="text" required={true}
@@ -87,14 +88,14 @@ export default class QuestionCard extends Component {
                         </CardBody>
                     </Card>
                 :
-                    <Card>
+                    <Card className="question-card">
                         <CardBody>
                             <CardTitle>{this.props.question.question}</CardTitle>
                             <CardText>{this.props.question.correct}</CardText>
                             <CardText>{this.props.question.wrong1}</CardText>
                             <CardText>{this.props.question.wrong2}</CardText>
                             <CardText>{this.props.question.wrong3}</CardText>
-                            <Button onClick={() => this.props.deleteQuestion(this.props.question.id)}>Delete Question</Button>
+                            <Button className="button-question" onClick={() => this.props.deleteQuestion(this.props.question.id)}>Delete Question</Button>
                             <Button onClick={this.editMode}>Edit Question</Button>
                         </CardBody>
                     </Card>

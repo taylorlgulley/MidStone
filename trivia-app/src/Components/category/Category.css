@@ -1,0 +1,11 @@
+.category {
+    display:inline-block;
+    float:none;
+    text-align: center;
+    margin: 20px 20px 20px 20px;
+    background-color: rgb(143, 196, 209);
+}
+
+.addButton {
+    margin: 20px 20px 20px 20px;
+}

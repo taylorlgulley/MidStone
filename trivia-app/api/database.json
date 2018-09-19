@@ -20,24 +20,19 @@
       "id": 1
     },
     {
-      "name": "Computers",
-      "userId": 1,
-      "id": 2
-    },
-    {
-      "name": "Data Science",
-      "userId": 1,
-      "id": 3
-    },
-    {
       "name": "Boston Celtics",
       "userId": 1,
       "id": 4
     },
     {
-      "name": "Now?",
+      "name": "Harry Potter",
       "userId": 1,
-      "id": 5
+      "id": 6
+    },
+    {
+      "name": "Star Wars",
+      "userId": 1,
+      "id": 7
     }
   ],
   "questions": [
@@ -90,16 +85,6 @@
       "wrong2": "3",
       "wrong3": "4",
       "id": 5
-    },
-    {
-      "categoryId": 5,
-      "userId": 1,
-      "question": "Hey",
-      "correct": "1",
-      "wrong1": "2",
-      "wrong2": "3",
-      "wrong3": "4",
-      "id": 6
     }
   ]
 }
