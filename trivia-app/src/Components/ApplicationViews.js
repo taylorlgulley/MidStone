@@ -31,7 +31,7 @@ export default class ApplicationViews extends Component {
     }
 
     componentDidMount() {
-
+        if (localStorage.credentials || sessionStorage.credentials) {
         const _state = {}
 
         let user = () => {
@@ -68,6 +68,7 @@ export default class ApplicationViews extends Component {
             .then(() => {
                 this.setState(_state)
             })
+        }
 
     }
 

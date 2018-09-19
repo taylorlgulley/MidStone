@@ -1,5 +1,8 @@
 import React, { Component } from "react"
 import DataManager from "../../modules/DataManager"
+import { Button, Label, Form, FormGroup, Input, CardTitle} from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './Login.css'
 
 
 export default class Login extends Component {
@@ -112,41 +115,44 @@ export default class Login extends Component {
 
     render() {
         return (
-            <form onSubmit={this.handleLogin}>
-                <h1 className="h3 mb-3 font-weight-normal">Please Log In</h1>
-                <label htmlFor="inputEmail">
-                    Email address
-                </label>
-                <input onChange={this.handleFieldChange} type="email"
-                    id="email"
-                    placeholder="Email address"
-                    required="" autoFocus="" /><br />
-                <label htmlFor="inputUsername">
-                    Username
-                </label>
-                <input onChange={this.handleFieldChange} type="username"
-                    id="username"
-                    placeholder="Username"
-                    required="" /><br />
-                <label htmlFor="inputPassword">
-                    Password
-                </label>
-                <input onChange={this.handleFieldChange} type="password"
-                    id="password"
-                    placeholder="Password"
-                    required="" /><br />
-                <label htmlFor="rememberMe">
-                    Remember Me
-                </label>
-                <input type="checkbox" name="RememberMe" value="Remember" onClick={this.changeRememberMe} />
-                <button type="submit" onClick={(e) => this.registerUser(e)}>
-                    Register
-                </button>
-                <button type="submit" onClick={this.handleLogin}>
-                    Login
-                </button>
-
-            </form>
+                <Form className="login" onSubmit={this.handleLogin}>
+                    <FormGroup>
+                        <CardTitle className="h3 mb-3 font-weight-normal text-white">Please Log In</CardTitle>
+                        <Label className="text-white" htmlFor="inputEmail">
+                            Email address
+                        </Label>
+                        <Input onChange={this.handleFieldChange} type="email"
+                            id="email"
+                            placeholder="Email address"
+                            required="" autoFocus="" /><br />
+                        <Label className="text-white" htmlFor="inputUsername">
+                            Username
+                        </Label>
+                        <Input onChange={this.handleFieldChange} type="username"
+                            id="username"
+                            placeholder="Username"
+                            required="" /><br />
+                        <Label className="text-white" htmlFor="inputPassword">
+                            Password
+                        </Label>
+                        <Input onChange={this.handleFieldChange} type="password"
+                            id="password"
+                            placeholder="Password"
+                            required="" /><br />
+                    </FormGroup>
+                    <FormGroup className="buttons">
+                        <Label className="text-white" check>
+                            <Input onClick={this.changeRememberMe} type="checkbox" />{' '}
+                                Remember Me
+                        </Label>
+                        <Button color="info" type="submit" onClick={(e) => this.registerUser(e)}>
+                            Register
+                        </Button>
+                        <Button color="info" type="submit" onClick={this.handleLogin}>
+                            Login
+                        </Button>
+                    </FormGroup>
+                </Form>
         )
     }
 }

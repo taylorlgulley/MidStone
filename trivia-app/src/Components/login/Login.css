@@ -1,0 +1,18 @@
+.login {
+    position: fixed;
+    top: 50%;
+    left: 45%;
+    margin-top: -10em;
+    margin-left: -10em;
+    height: 30em;
+    width: 30em;
+    padding: 3em;
+    background-color: #353a3f;
+    border-radius: 25px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
