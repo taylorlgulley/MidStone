@@ -4,6 +4,8 @@
     text-align: center;
     margin: 20px 20px 20px 20px;
     background-color: rgb(143, 196, 209);
+    font-size: 2em;
+    border-radius: 25px;
 }
 
 .addButton {

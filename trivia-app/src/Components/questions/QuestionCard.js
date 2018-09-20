@@ -52,53 +52,57 @@ export default class QuestionCard extends Component {
         return (
             <React.Fragment>
                 {(this.state.edit) ? 
-                    <Card className="question-card">
-                        <CardBody>
-                            <Label>Question</Label>
-                            <Input type="text" required={true}
-                                className="form-control"
-                                onChange={(evt) => { this.handleFieldChange("question", evt) }}
-                                id="question"
-                                value={this.state.question.question} />
-                            <Label>Correct Answer</Label>
-                            <Input type="text" required={true}
-                                className="form-control"
-                                onChange={(evt) => { this.handleFieldChange("correct", evt) }}
-                                id="correct"
-                                value={this.state.question.correct} />
-                            <Label>Wrong Answer #1</Label>
-                            <Input type="text" required={true}
-                                className="form-control"
-                                onChange={(evt) => { this.handleFieldChange("wrong1", evt) }}
-                                id="wrong1"
-                                value={this.state.question.wrong1} />
-                            <Label>Wrong Answer #2</Label>
-                            <Input type="text" required={true}
-                                className="form-control"
-                                onChange={(evt) => { this.handleFieldChange("wrong2", evt) }}
-                                id="wrong2"
-                                value={this.state.question.wrong2} />
-                            <Label>Wrong Answer #3</Label>
-                            <Input type="text" required={true}
-                                className="form-control"
-                                onChange={(evt) => { this.handleFieldChange("wrong3", evt) }}
-                                id="wrong3"
-                                value={this.state.question.wrong3} />
-                            <Button onClick={this.constructEditedQuestion}>Save Edited Question</Button>
-                        </CardBody>
-                    </Card>
+                    <div className="question-card">
+                        <Card>
+                            <CardBody>
+                                <Label>Question</Label>
+                                <Input type="text" required={true}
+                                    className="form-control"
+                                    onChange={(evt) => { this.handleFieldChange("question", evt) }}
+                                    id="question"
+                                    value={this.state.question.question} />
+                                <Label>Correct Answer</Label>
+                                <Input type="text" required={true}
+                                    className="form-control"
+                                    onChange={(evt) => { this.handleFieldChange("correct", evt) }}
+                                    id="correct"
+                                    value={this.state.question.correct} />
+                                <Label>Wrong Answer #1</Label>
+                                <Input type="text" required={true}
+                                    className="form-control"
+                                    onChange={(evt) => { this.handleFieldChange("wrong1", evt) }}
+                                    id="wrong1"
+                                    value={this.state.question.wrong1} />
+                                <Label>Wrong Answer #2</Label>
+                                <Input type="text" required={true}
+                                    className="form-control"
+                                    onChange={(evt) => { this.handleFieldChange("wrong2", evt) }}
+                                    id="wrong2"
+                                    value={this.state.question.wrong2} />
+                                <Label>Wrong Answer #3</Label>
+                                <Input type="text" required={true}
+                                    className="form-control"
+                                    onChange={(evt) => { this.handleFieldChange("wrong3", evt) }}
+                                    id="wrong3"
+                                    value={this.state.question.wrong3} />
+                                <Button onClick={this.constructEditedQuestion}>Save Edited Question</Button>
+                            </CardBody>
+                        </Card>
+                    </div>
                 :
-                    <Card className="question-card">
-                        <CardBody>
-                            <CardTitle>{this.props.question.question}</CardTitle>
-                            <CardText>{this.props.question.correct}</CardText>
-                            <CardText>{this.props.question.wrong1}</CardText>
-                            <CardText>{this.props.question.wrong2}</CardText>
-                            <CardText>{this.props.question.wrong3}</CardText>
-                            <Button className="button-question" onClick={() => this.props.deleteQuestion(this.props.question.id)}>Delete Question</Button>
-                            <Button onClick={this.editMode}>Edit Question</Button>
-                        </CardBody>
-                    </Card>
+                    <div className="question-card">
+                        <Card>
+                            <CardBody>
+                                <CardTitle>{this.props.question.question}</CardTitle>
+                                <CardText>{this.props.question.correct}</CardText>
+                                <CardText>{this.props.question.wrong1}</CardText>
+                                <CardText>{this.props.question.wrong2}</CardText>
+                                <CardText>{this.props.question.wrong3}</CardText>
+                                <Button className="button-question" onClick={() => this.props.deleteQuestion(this.props.question.id)}>Delete Question</Button>
+                                <Button onClick={this.editMode}>Edit Question</Button>
+                            </CardBody>
+                        </Card>
+                    </div>
                 }
             </React.Fragment>
         )
