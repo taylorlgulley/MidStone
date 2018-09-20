@@ -20,24 +20,24 @@
       "id": 1
     },
     {
-      "name": "Computers",
-      "userId": 1,
-      "id": 2
-    },
-    {
-      "name": "Data Science",
-      "userId": 1,
-      "id": 3
-    },
-    {
       "name": "Boston Celtics",
       "userId": 1,
       "id": 4
     },
     {
-      "name": "Now?",
+      "name": "Harry Potter",
       "userId": 1,
-      "id": 5
+      "id": 6
+    },
+    {
+      "name": "Star Wars",
+      "userId": 1,
+      "id": 7
+    },
+    {
+      "name": "Music",
+      "userId": 1,
+      "id": 8
     }
   ],
   "questions": [
@@ -72,24 +72,174 @@
       "id": 3
     },
     {
-      "categoryId": 4,
+      "categoryId": 8,
       "userId": 1,
-      "question": "Which of these teams suck?",
-      "correct": "All of these",
-      "wrong1": "Lakers",
-      "wrong2": "Heat",
-      "wrong3": "Cavs",
-      "id": 4
+      "question": "Who is not a member of the Beatles?",
+      "correct": "Pete Townsend",
+      "wrong1": "Paul McCartney",
+      "wrong2": "John Lennon",
+      "wrong3": "Ringo Star",
+      "id": 6
     },
     {
       "categoryId": 4,
       "userId": 1,
-      "question": "Hey Now!",
-      "correct": "1",
-      "wrong1": "2",
-      "wrong2": "3",
-      "wrong3": "4",
-      "id": 5
+      "question": "How many championships do the Celtics have?",
+      "correct": "17",
+      "wrong1": "16",
+      "wrong2": "18",
+      "wrong3": "15",
+      "id": 7
+    },
+    {
+      "categoryId": 4,
+      "userId": 1,
+      "question": "Which was not a coach of the Celtics?",
+      "correct": "Phil Jackson",
+      "wrong1": "Doc Rivers",
+      "wrong2": "Red Auerbach",
+      "wrong3": "Brad Stevens",
+      "id": 8
+    },
+    {
+      "categoryId": 1,
+      "userId": 1,
+      "question": "Who makes Bond's gadgets?",
+      "correct": "Q",
+      "wrong1": "M",
+      "wrong2": "Money Penny",
+      "wrong3": "Himself",
+      "id": 9
+    },
+    {
+      "categoryId": 1,
+      "userId": 1,
+      "question": "What was the first Bond movie?",
+      "correct": "Dr. No",
+      "wrong1": "From Russia With Love",
+      "wrong2": "Goldfinger",
+      "wrong3": "Thunderball",
+      "id": 10
+    },
+    {
+      "categoryId": 1,
+      "userId": 1,
+      "question": "Who wrote the James Bond novels?",
+      "correct": "Ian Fleming",
+      "wrong1": "Agatha Christie",
+      "wrong2": "Dan Brown",
+      "wrong3": "Tom Clancy",
+      "id": 11
+    },
+    {
+      "categoryId": 6,
+      "userId": 1,
+      "question": "What is Harry's cousins name?",
+      "correct": "Dudley",
+      "wrong1": "Ron",
+      "wrong2": "Hermione",
+      "wrong3": "Draco",
+      "id": 12
+    },
+    {
+      "categoryId": 6,
+      "userId": 1,
+      "question": "What is Harry's owls name?",
+      "correct": "Hedwig",
+      "wrong1": "Fang",
+      "wrong2": "Fluffy",
+      "wrong3": "Aragog",
+      "id": 13
+    },
+    {
+      "categoryId": 6,
+      "userId": 1,
+      "question": "Which is the fourth book in the series?",
+      "correct": "The Goblet of Fire",
+      "wrong1": "The Prisoner of Azkaban",
+      "wrong2": "The Order of the Phoenix",
+      "wrong3": "The Deathly Hallows",
+      "id": 14
+    },
+    {
+      "categoryId": 6,
+      "userId": 1,
+      "question": "What is Snape's Patronus?",
+      "correct": "A Doe",
+      "wrong1": "A Stag",
+      "wrong2": "A Serpent",
+      "wrong3": "A Cat",
+      "id": 15
+    },
+    {
+      "categoryId": 6,
+      "userId": 1,
+      "question": "What creature is Dumbledore's faithful companion Fawkes?",
+      "correct": "Phoenix",
+      "wrong1": "Griffin",
+      "wrong2": "Hippogriff",
+      "wrong3": "Basilisk",
+      "id": 16
+    },
+    {
+      "categoryId": 7,
+      "userId": 1,
+      "question": "What year did Star Wars originally come out?",
+      "correct": "1977",
+      "wrong1": "1972",
+      "wrong2": "1980",
+      "wrong3": "1999",
+      "id": 17
+    },
+    {
+      "categoryId": 7,
+      "userId": 1,
+      "question": "What is the color of Luke's first lightsaber?",
+      "correct": "Light Blue",
+      "wrong1": "Red",
+      "wrong2": "Green",
+      "wrong3": "Purple",
+      "id": 18
+    },
+    {
+      "categoryId": 7,
+      "userId": 1,
+      "question": "Who gave Darth Vader his name?",
+      "correct": "Darth Sidious",
+      "wrong1": "Himself",
+      "wrong2": "Yoda",
+      "wrong3": "Obi-wan Kenobi",
+      "id": 19
+    },
+    {
+      "categoryId": 7,
+      "userId": 1,
+      "question": "What is General Akbar's famous line?",
+      "correct": "\"It's a trap.\"",
+      "wrong1": "\"Luke I am your father.\"",
+      "wrong2": "\"Help me Obi-wan Kenobi you are our only hope.\"",
+      "wrong3": "\"It's not wise to upset a Wookie.\"",
+      "id": 20
+    },
+    {
+      "categoryId": 8,
+      "userId": 1,
+      "question": "Who sang the song \"Little Red Corvette\"?",
+      "correct": "Prince",
+      "wrong1": "Michael Jackson",
+      "wrong2": "Aretha Franklin",
+      "wrong3": "John Mellencamp",
+      "id": 21
+    },
+    {
+      "categoryId": 8,
+      "userId": 1,
+      "question": "What famous singer is married to Diana Krall",
+      "correct": "Elvis Costello",
+      "wrong1": "Bruce Springsteen",
+      "wrong2": "Michael Buble",
+      "wrong3": "Harry Connick Jr.",
+      "id": 22
     }
   ]
 }

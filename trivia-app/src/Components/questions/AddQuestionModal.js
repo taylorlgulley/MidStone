@@ -55,9 +55,9 @@ class AddCategoryModal extends React.Component {
     render() {
         return (
             <div>
-                <Button color="danger" onClick={this.toggle}>Add Question</Button>
+                <Button color="info" className="addButton" onClick={this.toggle}>Add Question</Button>
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                    <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
+                    <ModalHeader toggle={this.toggle}>Trivia Question</ModalHeader>
                     <ModalBody>
                         <Form>
                             <FormGroup>

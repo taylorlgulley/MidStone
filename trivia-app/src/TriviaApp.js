@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import brain from './brain.svg';
 import ApplicationViews from './Components/ApplicationViews'
 import NavBar from './Components/navbar/NavBar'
 import './App.css';
@@ -11,12 +11,9 @@ class TriviaApp extends Component {
         <NavBar />
         <div className="App">
           <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h1 className="App-title">Welcome to React</h1>
+            <img src={brain} className="App-logo" alt="logo" />
+            <h1 className="App-title">Welcome to Trivia Brain</h1>
           </header>
-          <p className="App-intro">
-            To get started, edit <code>src/App.js</code> and save to reload.
-          </p>
         </div>  
         <ApplicationViews />
       </React.Fragment>

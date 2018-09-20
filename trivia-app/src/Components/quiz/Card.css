@@ -1,0 +1,32 @@
+.col-centered {
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    /* text-align:left; */
+    /* inline-block space fix */
+    margin-right:-4px;
+    text-align: center;
+}
+.customQuiz {
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    /* text-align:left; */
+    /* inline-block space fix */
+    margin-right:-4px;
+    text-align: center;
+}
+.quiz {
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    /* text-align:left; */
+    /* inline-block space fix */
+    margin-right:-4px;
+    text-align: center;
+}
+.answer-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

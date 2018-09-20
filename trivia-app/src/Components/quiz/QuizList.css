@@ -1,9 +1,19 @@
 .defaultCategories {
-    margin: 20px;
+    margin: 20px 20px 20px 20px;
     justify-content: space-between;
 }
 
 .yourCategories {
     margin: 20px;
     justify-content: space-between;
+}
+
+.card {
+    margin: 0 0 20px 0;
+    background-color: rgb(143, 196, 209);
+    text-align: center;
+}
+
+.path {
+    color: black;
 }
