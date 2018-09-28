@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import QuizCard from './QuizCard'
+import './Card.css'
 
 export default class QuizGroup extends Component {
 

@@ -1,22 +1,13 @@
 import React, { Component } from 'react'
 import { Button, Card, CardBody, CardTitle, CardText} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './Card.css'
 import he from 'he'
 
 export default class QuizCard extends Component {
 
     state = {
-        flip: false,
         returnedQuestion: {}
-    }
-
-    // changes state for flip to true
-    flipCard = () => {
-        if (this.state.flip) {
-            this.setState({ flip: false })
-        } else {
-            this.setState({ flip: true })
-        }
     }
 
     componentDidMount() {
@@ -49,19 +40,9 @@ export default class QuizCard extends Component {
 
         return (
             <React.Fragment>
-                {(this.state.flip) ? 
-                    <div className="col-centered">
-                        <Card color="dark" style={{margin: "10px 10px 10px 10px", height:"300px", width:"600px"}}>
-                            <CardBody className="answer-center">
-                                <CardTitle className="text-white">The Answer is:</CardTitle>
-                                <CardText className="text-white">{this.state.returnedQuestion.answer}</CardText>
-                                <Button color="info" onClick={this.flipCard}>Question</Button>
-                            </CardBody>
-                        </Card>
-                    </div>
-                :
-                    <div className="col-centered">
-                        <Card color="dark" style={{margin: "10px 10px 10px 10px", height:"300px", width:"600px"}}>
+                <div className="card-container">
+                    <div className="questionCard">
+                        <Card className="front" color="dark">
                             <CardBody>
                                 <CardTitle className="text-white">Question</CardTitle>
                                 <CardText className="text-white">{this.state.returnedQuestion.question}</CardText>
@@ -71,11 +52,17 @@ export default class QuizCard extends Component {
                                     <CardText className="w-50 text-white">C. {this.state.returnedQuestion.option3}</CardText>
                                     <CardText className="w-50 text-white">D. {this.state.returnedQuestion.option4}</CardText>
                                 </CardBody>
-                                <Button color="info" onClick={this.flipCard}>Answer</Button>
+                                <Button color="info">Answer</Button>
+                            </CardBody>
+                        </Card>
+                        <Card className="back" color="dark">
+                            <CardBody className="answer-center">
+                                <CardTitle className="text-white">The Answer is:</CardTitle>
+                                <CardText className="text-white">{this.state.returnedQuestion.answer}</CardText>
                             </CardBody>
                         </Card>
                     </div>
-                }
+                </div>
             </React.Fragment>
         )
     }

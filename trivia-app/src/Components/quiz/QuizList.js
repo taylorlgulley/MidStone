@@ -11,69 +11,72 @@ export default class QuizList extends Component {
                 <div className="row">
                     <div className="defaultCategories col">
                         <h3>Default Categories</h3>
-                        <div key="books" className="card">
-                            <div className="card-body">
-                                <h3>Books</h3>
-                                <Link className="nav-link path" to={`/quiz/books`}>Take Quiz</Link>
+                        <div className="row flex-wrap justify-content-between">
+                            <div key="books" className="card">
+                                <div className="card-body">
+                                    <h3>Books</h3>
+                                    <Link className="nav-link path" to={`/quiz/books`}>Take Quiz</Link>
+                                </div>
                             </div>
-                        </div>
-                        <div key="sports" className="card">
-                            <div className="card-body">
-                                <h3>Sports</h3>
-                                <Link className="nav-link path" to={`/quiz/sports`}>Take Quiz</Link>
+                            <div key="sports" className="card">
+                                <div className="card-body">
+                                    <h3>Sports</h3>
+                                    <Link className="nav-link path" to={`/quiz/sports`}>Take Quiz</Link>
+                                </div>
                             </div>
-                        </div>
-                        <div key="films" className="card">
-                            <div className="card-body">
-                                <h3>Films</h3>
-                                <Link className="nav-link path" to={`/quiz/films`}>Take Quiz</Link>
+                            <div key="films" className="card">
+                                <div className="card-body">
+                                    <h3>Films</h3>
+                                    <Link className="nav-link path" to={`/quiz/films`}>Take Quiz</Link>
+                                </div>
                             </div>
-                        </div>
-                        <div key="videogames" className="card">
-                            <div className="card-body">
-                                <h3>Video Games</h3>
-                                <Link className="nav-link path" to={`/quiz/videogames`}>Take Quiz</Link>
+                            <div key="videogames" className="card">
+                                <div className="card-body">
+                                    <h3>Video Games</h3>
+                                    <Link className="nav-link path" to={`/quiz/videogames`}>Take Quiz</Link>
+                                </div>
                             </div>
-                        </div>
-                        <div key="mythology" className="card">
-                            <div className="card-body">
-                                <h3>Mythology</h3>
-                                <Link className="nav-link path" to={`/quiz/mythology`}>Take Quiz</Link>
+                            <div key="mythology" className="card">
+                                <div className="card-body">
+                                    <h3>Mythology</h3>
+                                    <Link className="nav-link path" to={`/quiz/mythology`}>Take Quiz</Link>
+                                </div>
                             </div>
-                        </div>
-                        <div key="animals" className="card">
-                            <div className="card-body">
-                                <h3>Animals</h3>
-                                <Link className="nav-link path" to={`/quiz/animals`}>Take Quiz</Link>
+                            <div key="animals" className="card">
+                                <div className="card-body">
+                                    <h3>Animals</h3>
+                                    <Link className="nav-link path" to={`/quiz/animals`}>Take Quiz</Link>
+                                </div>
                             </div>
-                        </div>
-                        <div key="anime" className="card">
-                            <div className="card-body">
-                                <h3>Anime</h3>
-                                <Link className="nav-link path" to={`/quiz/anime`}>Take Quiz</Link>
+                            <div key="anime" className="card">
+                                <div className="card-body">
+                                    <h3>Anime</h3>
+                                    <Link className="nav-link path" to={`/quiz/anime`}>Take Quiz</Link>
+                                </div>
                             </div>
-                        </div>
-                        <div key="generalknowledge" className="card">
-                            <div className="card-body">
-                                <h3>General Knowledge</h3>
-                                <Link className="nav-link path" to={`/quiz/generalknowledge`}>Take Quiz</Link>
+                            <div key="generalknowledge" className="card">
+                                <div className="card-body">
+                                    <h3>General Knowledge</h3>
+                                    <Link className="nav-link path" to={`/quiz/generalknowledge`}>Take Quiz</Link>
+                                </div>
                             </div>
-                        </div>
-                        <div key="geography" className="card">
-                            <div className="card-body">
-                                <h3>Geography</h3>
-                                <Link className="nav-link path" to={`/quiz/geography`}>Take Quiz</Link>
+                            <div key="geography" className="card">
+                                <div className="card-body">
+                                    <h3>Geography</h3>
+                                    <Link className="nav-link path" to={`/quiz/geography`}>Take Quiz</Link>
+                                </div>
                             </div>
-                        </div>
-                        <div key="art" className="card">
-                            <div className="card-body">
-                                <h3>Art</h3>
-                                <Link className="nav-link path" to={`/quiz/art`}>Take Quiz</Link>
+                            <div key="art" className="card">
+                                <div className="card-body">
+                                    <h3>Art</h3>
+                                    <Link className="nav-link path" to={`/quiz/art`}>Take Quiz</Link>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div className="yourCategories col">
                         <h3>Your Categories</h3>
+                        <div className="row flex-wrap justify-content-between">
                         {
                             this.props.categories.map(category =>
                                 <div key={category.id} className="card">
@@ -84,6 +87,7 @@ export default class QuizList extends Component {
                                 </div>
                             )
                         }
+                        </div>
                     </div>
                 </div>
             </React.Fragment>
