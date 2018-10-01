@@ -14,8 +14,10 @@ This is a Trivia App that displays trivia info in flashcard format. Trivia Brain
 ## Getting Started
 To run the Trivia Brain on your local computer
 1. First you must clone or fork this Repository
-2. Run `npm install` or `$ npm install` from your terminal inside the project directory (`/MidStone`)
-3. 
+2. Run `npm install` or `$ npm install` from your terminal inside the project directory (`/trivia-app`)
+3. Run `npm start` or `$ npm start` from your terminal inside the project directory (`/trivia-app`) to start the React App
+4. In a seperate terminal window run move into the api directory `/trivia-app/api` `json-server -p 5002 -w database.json` or `$ json-server -p 5002 -w database.json`
+5. Start learning Trivia
 
-
-A Trivia App in React for my MidStone
+## Data Structure
+![ERD](./ERD.png)
