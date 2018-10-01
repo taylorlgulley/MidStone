@@ -63,7 +63,7 @@ export default class ApplicationViews extends Component {
             .then(() => APIManager.getGeography())
             .then(allGeographyQuestions => _state.geography = allGeographyQuestions.results)
             .then(() => APIManager.getArt())
-            .then(allArtQuestions => _state.Art = allArtQuestions.results)
+            .then(allArtQuestions => _state.art = allArtQuestions.results)
             .then(() => {
                 this.setState(_state)
             })

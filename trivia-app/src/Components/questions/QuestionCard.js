@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Button, Card, CardBody, CardTitle, CardText, Input, Label} from 'reactstrap';
+import { Button, CardBody, CardTitle, CardText, Input, Label} from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './Question.css'
 
 export default class QuestionCard extends Component {
@@ -53,7 +54,7 @@ export default class QuestionCard extends Component {
             <React.Fragment>
                 {(this.state.edit) ? 
                     <div className="question-card">
-                        <Card>
+                        <div className="question-style">
                             <CardBody>
                                 <Label>Question</Label>
                                 <Input type="text" required={true}
@@ -87,12 +88,12 @@ export default class QuestionCard extends Component {
                                     value={this.state.question.wrong3} />
                                 <Button onClick={this.constructEditedQuestion}>Save Edited Question</Button>
                             </CardBody>
-                        </Card>
+                        </div>
                     </div>
                 :
                     <div className="question-card">
-                        <Card>
-                            <CardBody>
+                        <div className="question-style">
+                            <div>
                                 <CardTitle>{this.props.question.question}</CardTitle>
                                 <CardText>{this.props.question.correct}</CardText>
                                 <CardText>{this.props.question.wrong1}</CardText>
@@ -100,8 +101,8 @@ export default class QuestionCard extends Component {
                                 <CardText>{this.props.question.wrong3}</CardText>
                                 <Button className="button-question" onClick={() => this.props.deleteQuestion(this.props.question.id)}>Delete Question</Button>
                                 <Button onClick={this.editMode}>Edit Question</Button>
-                            </CardBody>
-                        </Card>
+                            </div>
+                        </div>
                     </div>
                 }
             </React.Fragment>

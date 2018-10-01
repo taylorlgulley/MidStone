@@ -11,3 +11,12 @@
 .addButton {
     margin: 20px 20px 20px 20px;
 }
+
+.delete-button {
+    font-size: 1em;
+}
+
+.edit-image {
+    width: 1em;
+    height: 1em;
+}

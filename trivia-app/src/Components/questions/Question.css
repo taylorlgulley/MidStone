@@ -8,9 +8,21 @@
     margin: 20px 20px 20px 20px;
 }
 .question-card {
-    width: 400px;
+    width: 25em;
     float:none;
     display:inline-block;
     text-align: center;
     margin: 0 20px 0 0;
 }
+
+.question-style {
+    width: 25em;
+    background-color: rgb(143, 196, 209);
+    margin: 0 0 5em 0;
+    padding: 2em;
+}
+
+.question-section {
+    padding: 0 0 0 10em;
+}
+

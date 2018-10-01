@@ -11,6 +11,12 @@
       "username": "Taylor",
       "password": "qwer",
       "id": 2
+    },
+    {
+      "email": "meg@ducharme.com",
+      "username": "megducharme",
+      "password": "12345",
+      "id": 3
     }
   ],
   "categories": [
@@ -38,6 +44,16 @@
       "name": "Music",
       "userId": 1,
       "id": 8
+    },
+    {
+      "name": "Something",
+      "userId": 3,
+      "id": 10
+    },
+    {
+      "name": "Cuisine",
+      "userId": 1,
+      "id": 11
     }
   ],
   "questions": [

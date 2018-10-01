@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Button, Card, CardBody, CardTitle, CardText} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Card.css'
+import click from '../../images/click.png'
 import he from 'he'
 
 export default class QuizCard extends Component {
@@ -52,7 +53,7 @@ export default class QuizCard extends Component {
                                     <CardText className="w-50 text-white">C. {this.state.returnedQuestion.option3}</CardText>
                                     <CardText className="w-50 text-white">D. {this.state.returnedQuestion.option4}</CardText>
                                 </CardBody>
-                                <Button color="info">Answer</Button>
+                                <Button color="info"><img className="click-image" alt="click-icon" src={click}/> Answer</Button>
                             </CardBody>
                         </Card>
                         <Card className="back" color="dark">
