@@ -47,13 +47,13 @@
     },
     {
       "name": "Something",
-      "userId": 1,
-      "id": 9
-    },
-    {
-      "name": "Something",
       "userId": 3,
       "id": 10
+    },
+    {
+      "name": "Cuisine",
+      "userId": 1,
+      "id": 11
     }
   ],
   "questions": [
@@ -256,16 +256,6 @@
       "wrong2": "Michael Buble",
       "wrong3": "Harry Connick Jr.",
       "id": 22
-    },
-    {
-      "categoryId": 9,
-      "userId": 1,
-      "question": "Hey how long can the question be and still fit on the card without going outside the border I wonder? Wait I wonder how much further I can push it? What about now or is this gonna be to much for it to handle? I would hope that someone would not write this much as their question?",
-      "correct": "Elvis Costello how about for this part does it make a difference",
-      "wrong1": "From Russia With Love hmmm I wonder if it matters",
-      "wrong2": "Greenwich Estate",
-      "wrong3": "It had no name",
-      "id": 23
     }
   ]
 }
