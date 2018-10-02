@@ -1,7 +1,7 @@
 # Trivia Brain
 
 ## What is Trivia Brain?
-This is a Trivia App that displays trivia info in flashcard format. Trivia Brain presents the user with 10 default categories for use as well as the ability to create your own categories and questions for the user to play. The default categories pull questions from an external API called Open Trivia while the user categories and questions are stored in a JSON server. Therefore the user can Add, Delete and Edit their questions.
+This is a Trivia App that displays trivia info in flashcard format. Trivia Brain presents the user with 10 default categories for use as well as the ability to create your own categories and questions for the user to play. The default categories pull questions from an external API called Open Trivia while the user can create categories and questions that are stored in a JSON server. Therefore the user can Add, Delete and Edit their questions.
 
 ## Technologies Used
 * [React](https://github.com/facebook/create-react-app/) - The JavaScript Library used to create the App
