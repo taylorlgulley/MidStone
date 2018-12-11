@@ -51,7 +51,7 @@ export default class Login extends Component {
                         id: userObject.id
                     })
                 )
-                window.location.href = "http://localhost:3000/"
+                window.location.href = "https://trivia-brain.herokuapp.com/"
             } else {
                 /*
                     For now, just store the email and password that
@@ -66,7 +66,7 @@ export default class Login extends Component {
                     })
                 )
 
-                window.location.href = "http://localhost:3000/"
+                window.location.href = "https://trivia-brain.herokuapp.com/"
             }
         })
     }
