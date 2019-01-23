@@ -3,6 +3,8 @@
 ## What is Trivia Brain?
 This is a Trivia App that displays trivia info in flashcard format. Trivia Brain presents the user with 10 default categories for use as well as the ability to create your own categories and questions for the user to play. The default categories pull questions from an external API called Open Trivia while the user can create categories and questions that are stored in a JSON server. Therefore the user can Add, Delete and Edit their questions.
 
+Click [Here](https://trivia-brain.herokuapp.com/login) to go to the deployed site.
+
 ## Technologies Used
 * [React](https://github.com/facebook/create-react-app/) - The JavaScript Library used to create the App
 * [Reactstrap](https://reactstrap.github.io/) - Used for styling
@@ -10,6 +12,7 @@ This is a Trivia App that displays trivia info in flashcard format. Trivia Brain
 * [JSON Server](https://github.com/typicode/json-server) - Database used to store user information
 * [he](https://github.com/mathiasbynens/he) - NPM install used to decode the information from Open Trivia
 * [Canva](https://www.canva.com/) - Design site used to make the Logo
+* Heroku - Used to deploy Trivia Brain
 
 ## Getting Started
 To run the Trivia Brain on your local computer
